@@ -1,15 +1,7 @@
-<div>
-  <h1 align="center" style="font-size: 70px;">PinPut</h1>
-  <p align="center" >
-    <a title="PRs are welcome">
-      <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
-    </a>
-  <div>
-</div>
-
+# PinPut
 
 🔥🚀
-Flutter package to create Pin code input (OTP) text field with every pixel customization possibility 🎨 and beautiful animations, Supports custom numpad.
+Flutter package to create Pin code input text field with every pixel customization possibility 🎨 with beautiful animations
 
 ## Breaking changes in version 0.2.0+ changed widget building logic so now it supports:
 -    Backspace on keyboard
@@ -55,7 +47,7 @@ Use `submittedFieldDecoration`, `selectedFieldDecoration`, `followingFieldDecora
 properties to add field decoration, border, fill color, shape, radius etc.
 provide different values to them in order to achieve nice implicit animations
 
-<img src="https://raw.githubusercontent.com/Tkko/Flutter_PinPut/master/example/media/pinput_with_numpad.gif" width="300em" /><img src="https://raw.githubusercontent.com/Tkko/Flutter_PinPut/master/example/media/all_pin_put_demo.gif" width="300em" /><img src="https://raw.githubusercontent.com/Tkko/Flutter_PinPut/master/example/media/pin_put_demo_1.gif" width="300em" /><img src="https://raw.githubusercontent.com/Tkko/Flutter_PinPut/master/example/media/pin_put_demo_2.gif" width="300em" />
+<img src="https://raw.githubusercontent.com/Tkko/Flutter_PinPut/master/example/media/all_pin_put_demo.gif" width="300em" /><img src="https://raw.githubusercontent.com/Tkko/Flutter_PinPut/master/example/media/pin_put_demo_1.gif" width="300em" /><img src="https://raw.githubusercontent.com/Tkko/Flutter_PinPut/master/example/media/pin_put_demo_2.gif" width="300em" />
 <img src="https://raw.githubusercontent.com/Tkko/Flutter_PinPut/master/example/media/pin_put_demo_3.gif" width="300em" />
 <img src="https://raw.githubusercontent.com/Tkko/Flutter_PinPut/master/example/media/pin_put_demo_4.gif" width="300em" />
 
@@ -68,7 +60,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  pinput: ^1.2.0
+  pinput: ^0.2.0
 ```
 
 ### 2. Install it

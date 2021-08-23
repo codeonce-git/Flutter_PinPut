@@ -1,16 +1,6 @@
 
 # Changelog
 
-## 1.2.0 -03/13/2021
-🔥🚀
-Now PinPut supports custom numpad.(See demos)
-Added `checkClipboard` property
-
-
-## 1.1.0 -03/02/2021
-🔥🚀
-Migrated to Null safety
-
 ## 1.0.0 -01/14/2021
 🔥🚀
 Updated Example, Increased package version to `1.0.0` in order to make it more trustful

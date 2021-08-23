@@ -83,71 +83,37 @@ class PinPutViewState extends State<PinPutView> {
     );
     return Form(
       key: _formKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          GestureDetector(
-            onLongPress: () {
-              print(_formKey.currentState.validate());
-            },
-            child: PinPut(
-              validator: (s) {
-                if (s.contains('1')) return null;
-                return 'NOT VALID';
-              },
-              useNativeKeyboard: false,
-              // autovalidateMode: AutovalidateMode.onUserInteraction,
-              withCursor: true,
-              fieldsCount: 5,
-              fieldsAlignment: MainAxisAlignment.spaceAround,
-              textStyle: const TextStyle(fontSize: 25.0, color: Colors.black),
-              eachFieldMargin: EdgeInsets.all(0),
-              eachFieldWidth: 45.0,
-              eachFieldHeight: 55.0,
-              onSubmit: (String pin) => _showSnackBar(pin),
-              focusNode: _pinPutFocusNode,
-              controller: _pinPutController,
-              submittedFieldDecoration: pinPutDecoration,
-              selectedFieldDecoration: pinPutDecoration.copyWith(
-                color: Colors.white,
-                border: Border.all(
-                  width: 2,
-                  color: const Color.fromRGBO(160, 215, 220, 1),
-                ),
-              ),
-              followingFieldDecoration: pinPutDecoration,
-              pinAnimationType: PinAnimationType.scale,
+      child: GestureDetector(
+        onLongPress: () {
+          print(_formKey.currentState.validate());
+        },
+        child: PinPut(
+          validator: (s) {
+            if (s.contains('1')) return null;
+            return 'NOT VALID';
+          },
+          autovalidateMode: AutovalidateMode.onUserInteraction,
+          withCursor: true,
+          fieldsCount: 5,
+          fieldsAlignment: MainAxisAlignment.spaceAround,
+          textStyle: const TextStyle(fontSize: 25.0, color: Colors.black),
+          eachFieldMargin: EdgeInsets.all(0),
+          eachFieldWidth: 45.0,
+          eachFieldHeight: 55.0,
+          onSubmit: (String pin) => _showSnackBar(pin),
+          focusNode: _pinPutFocusNode,
+          controller: _pinPutController,
+          submittedFieldDecoration: pinPutDecoration,
+          selectedFieldDecoration: pinPutDecoration.copyWith(
+            color: Colors.white,
+            border: Border.all(
+              width: 2,
+              color: const Color.fromRGBO(160, 215, 220, 1),
             ),
           ),
-          SizedBox(height: 30),
-          GridView.count(
-            crossAxisCount: 3,
-            shrinkWrap: true,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            padding: const EdgeInsets.all(30),
-            physics: NeverScrollableScrollPhysics(),
-            children: [
-              ...[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((e) {
-                return RoundedButton(
-                  title: '$e',
-                  onTap: () {
-                    _pinPutController.text = '${_pinPutController.text}$e';
-                  },
-                );
-              }),
-              RoundedButton(
-                title: '<-',
-                onTap: () {
-                  if (_pinPutController.text.isNotEmpty) {
-                    _pinPutController.text = _pinPutController.text
-                        .substring(0, _pinPutController.text.length - 1);
-                  }
-                },
-              ),
-            ],
-          ),
-        ],
+          followingFieldDecoration: pinPutDecoration,
+          pinAnimationType: PinAnimationType.scale,
+        ),
       ),
     );
   }
@@ -263,19 +229,19 @@ class PinPutViewState extends State<PinPutView> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          TextButton(
+          FlatButton(
             onPressed: () => _pinPutFocusNode.requestFocus(),
             child: const Text('Focus'),
           ),
-          TextButton(
+          FlatButton(
             onPressed: () => _pinPutFocusNode.unfocus(),
             child: const Text('Unfocus'),
           ),
-          TextButton(
+          FlatButton(
             onPressed: () => _pinPutController.text = '',
             child: const Text('Clear All'),
           ),
-          TextButton(
+          FlatButton(
             child: Text('Paste'),
             onPressed: () => _pinPutController.text = '234',
           ),
@@ -298,33 +264,8 @@ class PinPutViewState extends State<PinPutView> {
       ),
       backgroundColor: Colors.deepPurpleAccent,
     );
-    ScaffoldMessenger.of(context)
+    Scaffold.of(context)
       ..hideCurrentSnackBar()
       ..showSnackBar(snackBar);
-  }
-}
-
-class RoundedButton extends StatelessWidget {
-  final String title;
-  final VoidCallback onTap;
-
-  RoundedButton({this.title, this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: const Color.fromRGBO(25, 21, 99, 1),
-        ),
-        alignment: Alignment.center,
-        child: Text(
-          '$title',
-          style: TextStyle(fontSize: 20, color: Colors.white),
-        ),
-      ),
-    );
   }
 }
