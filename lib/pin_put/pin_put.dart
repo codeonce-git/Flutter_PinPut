@@ -52,6 +52,7 @@ class PinPut extends StatefulWidget {
     this.textCapitalization = TextCapitalization.none,
     this.textInputAction,
     this.toolbarOptions,
+    this.onEditingComplete,
     this.mainAxisSize = MainAxisSize.max,
   })  : assert(fieldsCount > 0),
         super(key: key);
@@ -67,7 +68,8 @@ class PinPut extends StatefulWidget {
 
   /// Called every time input value changes.
   final ValueChanged<String> onChanged;
-
+  /// Called when press Done button on keyboard
+  final VoidCallback onEditingComplete;
   /// Called when user clicks on PinPut
   final VoidCallback onTap;
 
