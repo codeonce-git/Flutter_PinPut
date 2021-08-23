@@ -104,6 +104,7 @@ class PinPutState extends State<PinPut>
       onTap: widget.onTap,
       onSaved: widget.onSaved,
       onChanged: widget.onChanged,
+      onEditingComplete: widget.onEditingComplete,
       validator: widget.validator,
       autovalidateMode: widget.autovalidateMode,
       textInputAction: widget.textInputAction,
